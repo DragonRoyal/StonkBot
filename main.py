@@ -45,9 +45,9 @@ from discord.ext import buttons
 
 #my_secret = os.environ['TOKEN']
 #TOKEN=''
-TOKEN='ODMzMTIyMzg1NjAzNDYxMTIx.YHtvrw.T5K05r_a6uEYl7kShsO3D-0QIKs'
+TOKEN='Hello fellow human'
 
-
+#
 
 
 
@@ -2067,32 +2067,6 @@ async def laptop(self, ctx):
 async def hi2(ctx):
     await ctx.send("it worked")
 
-#supergoodchatbotbutnoembed
-@bot.event
-async def on_message(message):
-    if bot.user == message.author:
-     return
-    if message.channel.name == 'chatbot' or message.channel.name =='⭐・chat・bot' or message.channel.name =='ai':
-     msg = message.content
-     key = 'hNU9gUhSU5t8'
-     header = {"x-api-key": key}
-     dev_name = "DragonRoyal"
-     type = "stable"
-    
-     params = {'type':type , 'message':msg, 'dev_name': "DragonRoyal", 'bot_name': "Stonk Bot"}
-     async with aiohttp.ClientSession(headers=header) as session:
-       async with session.get(f'https://api.pgamerx.com/v3/ai/response', params=params) as resp:
-       
-         text = await resp.json()
-         em = discord.Embed(title = text[0]["message"], color= discord.Color.random())
-         em.set_footer(icon_url = message.author.avatar_url,text = f"Said to: {message.author.name}. Consider voting for this bot in top.gg")
-         
-         await message.reply(embed = em)
-    else:
-     await bot.process_commands(message)
-     pass
-
-   
 
 
 @bot.command() # Normal message wait_for
@@ -2261,15 +2235,6 @@ class Player(commands.Cog):
 #            await ctx.voice_client.disconnect()
 #        else:
 #            await ctx.author.voice.channel.connect()
-
-
-    @commands.command()
-    async def leave(self, ctx):
-        if ctx.voice_client is not None:
-            return await ctx.voice_client.disconnect()
-
-        await ctx.send("I am not connected to a voice channel.")
-
 
 
 
